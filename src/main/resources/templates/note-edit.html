@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Site Block</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<header th:insert="~{blocks/header :: header}">
+
+</header>
+
+
+<div class="container mt-5 mb-5">
+
+    <h1>Оновлення нотатки</h1>
+    <div th:each="note : ${noteList}">
+
+        <!--Форма оновлення-->
+
+        <form  th:action='@{/note/edit(id=${note.getId()})}' method="post"> <!-- обробка запиту буде там же на якій сторінці ми є-->
+
+
+
+            <input type="text" th:value="${note.getTitle()}" name="title" placeholder="add your note name" class="form-control"> <br>
+
+
+            <input type="text" th:value="${note.getContent()}" name="content" placeholder="add content" class="form-control"> <br>
+
+
+            <button type="submit" class="btn btn-success">Update</button> <!-- при натисканні данні будуть відправлятися на сервер-->
+
+        </form>
+    </div>
+
+</div>
+
+
+<div th:insert="~{blocks/footer :: footer}">
+
+</div>
+
+</body>
+</html>
