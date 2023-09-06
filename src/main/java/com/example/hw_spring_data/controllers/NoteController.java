@@ -1,7 +1,6 @@
 package com.example.hw_spring_data.controllers;
 
 import com.example.hw_spring_data.models.Note;
-import com.example.hw_spring_data.repo.NoteRepository;
 import com.example.hw_spring_data.servises.NoteServis;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,7 @@ public class NoteController {
 
 
     @GetMapping("/list")
-    public String blogMain(Model model) {
+    public String noteMain(Model model) {
         Iterable<Note> notes = servis.findAll();
         model.addAttribute("noteList", notes);
         return "note-all";
@@ -31,12 +30,12 @@ public class NoteController {
     }
 
     @GetMapping("/add") // щаблон
-    public String blogAdd(Model model) {
+    public String noteAdd(Model model) {
         return "note-add";
     }
 
     @PostMapping("/add") //  отримуємо данні з форми сайту
-    public String blogPostAdd(@RequestParam String title,
+    public String notePostAdd(@RequestParam String title,
                               @RequestParam String content,
                               Model model) {
 

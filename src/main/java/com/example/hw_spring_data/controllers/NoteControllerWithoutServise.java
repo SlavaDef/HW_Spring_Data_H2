@@ -84,7 +84,7 @@ public class NoteControllerWithoutServise {
     }
 
     @PostMapping("/note/delete") // адреса яку ми відслідковуємо
-    public String blogPostDelete(long id, // + таккож приймаємо параметр для обробки
+    public String notePostDelete(long id, // + таккож приймаємо параметр для обробки
                                  Model model) {
         // + orElseThrow() викине виключення якщо запис не був знайдений
         Note note = repository.findById(id).orElseThrow();
