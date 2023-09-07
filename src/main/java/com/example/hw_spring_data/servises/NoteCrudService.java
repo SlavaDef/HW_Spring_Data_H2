@@ -1,21 +1,17 @@
 package com.example.hw_spring_data.servises;
 
 import com.example.hw_spring_data.models.Note;
-import com.example.hw_spring_data.repo.NoteRepository;
-import lombok.NoArgsConstructor;
+import com.example.hw_spring_data.repo.NoteCrudRepo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class NoteServis {
+public class NoteCrudService {
 
-    private final NoteRepository repository;
+    private final NoteCrudRepo repository;
 
     public List<Note> findAll() {
         return (List<Note>) repository.findAll();
@@ -32,10 +28,11 @@ public class NoteServis {
     }
 
     public Note getById(Long id) {
-        return repository.getById(id);
+        return repository.findById(id)
+                .orElseThrow(IllegalStateException::new);
     }
 
-    public void update( Note note) {
+    public void update(Note note) {
 
         repository.save(note);
     }

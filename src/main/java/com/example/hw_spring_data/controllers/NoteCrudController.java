@@ -1,7 +1,7 @@
-package com.example.hw_spring_data.controllers;
+/* package com.example.hw_spring_data.controllers;
 
 import com.example.hw_spring_data.models.Note;
-import com.example.hw_spring_data.servises.NoteServis;
+import com.example.hw_spring_data.servises.NoteCrudService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/note")
 @Controller
-public class NoteController {
+public class NoteCrudController {
 
-    private final NoteServis servis;
+    private final NoteCrudService servis;
 
 
     @GetMapping("/list")
@@ -63,9 +63,15 @@ public class NoteController {
                              Model model) {
 
         Note note = servis.getById(id);
+
         note.setTitle(title);
         note.setContent(content);
         servis.update(note);
         return "redirect:/note/list";
     }
 }
+
+
+
+
+ */

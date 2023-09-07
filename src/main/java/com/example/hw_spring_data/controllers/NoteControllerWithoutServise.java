@@ -1,7 +1,7 @@
 /* package com.example.hw_spring_data.controllers;
 
 import com.example.hw_spring_data.models.Note;
-import com.example.hw_spring_data.repo.NoteRepository;
+import com.example.hw_spring_data.repo.NoteCrudRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +17,7 @@ import java.util.Optional;
 @Controller
 public class NoteControllerWithoutServise {
 
-    private final NoteRepository repository;
+    private final NoteCrudRepo repository;
 
     @GetMapping("/note/list")
     public String noteMain(Model model) {
@@ -95,4 +95,7 @@ public class NoteControllerWithoutServise {
 
 }
 
-*/
+
+
+
+ */
