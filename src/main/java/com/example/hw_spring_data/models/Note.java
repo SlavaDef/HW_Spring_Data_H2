@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.stereotype.Component;
 
-//@ToString
-//@Table(name = "my_note")
 @NoArgsConstructor
 @Data
 @Entity
